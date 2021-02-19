@@ -206,3 +206,31 @@ namespace MatrixHomeWork
         }
     }
 }
+
+//пример задачи с многопоточностью
+/*using System;
+using System.Threading;
+namespace ThreadingEx 
+{
+    class Program 
+    {
+        public static void ThreadProc() 
+        {
+            for (int i = 0; i < 10; i++) 
+            {
+                Console.WriteLine($"Поток под номером: {i}");
+                Thread.Sleep(0);
+            }
+        }
+        public static void Main() 
+        {
+            Thread t = new Thread(new ThreadStart(ThreadProc));
+            t.Start();
+            for (int i = 0; i < 4; i++) 
+            {
+                Console.WriteLine("Главный поток данных.");
+                Thread.Sleep(0);
+            }
+        }
+    }
+}*/
