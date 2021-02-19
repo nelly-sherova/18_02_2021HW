@@ -207,7 +207,7 @@ namespace MatrixHomeWork
     }
 }
 
-//пример задачи с многопоточностью
+//пример задачи с многопоточностью 
 /*using System;
 using System.Threading;
 namespace ThreadingEx 
@@ -234,3 +234,67 @@ namespace ThreadingEx
         }
     }
 }*/
+// пример ассинхронности с main
+/*
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.IO;
+ 
+namespace Asynnc
+{
+    class Program
+    {
+        static async void ReadWriteAsync()
+        {
+            string s = "Hello world! One step at a time";
+ 
+            using (StreamWriter writer = new StreamWriter("hello.txt", false))
+            {
+                await writer.WriteLineAsync(s); 
+            }
+            using (StreamReader reader = new StreamReader("hello.txt"))
+            {
+                string result = await reader.ReadToEndAsync();
+                Console.WriteLine(result);
+            }
+        } 
+        static void Main(string[] args)
+        {
+            ReadWriteAsync();
+             
+            Console.WriteLine("Некоторая работа");
+            Console.Read();
+        }
+    }
+}
+*/
+
+// пример с параллельностью
+/*using System;
+using System.Threading;
+ 
+namespace Parallel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Task task = new Task(Display);
+            task.Start();
+             
+            Console.WriteLine("Завершение метода Main");
+ 
+            Console.ReadLine();
+        }
+ 
+        static void Display()
+        {
+            Console.WriteLine("Начало работы метода Display");
+ 
+            Console.WriteLine("Завершение работы метода Display");
+        }
+    }
+}*/
+
+
